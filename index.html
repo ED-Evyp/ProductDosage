@@ -321,6 +321,248 @@
                 font-size: 1.6rem;
             }
         }
+
+        /* Diary/Application Guide Styles */
+        .diary-container {
+            animation: slideUp 0.6s ease-out;
+        }
+
+        .diary-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .diary-title {
+            font-family: 'Kreon', serif;
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+
+        .diary-subtitle {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+        }
+
+        .product-selector {
+            background: var(--card);
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 4px 20px var(--shadow);
+            margin-bottom: 30px;
+        }
+
+        .diary-table-container {
+            background: var(--card);
+            padding: 40px;
+            border-radius: 25px;
+            box-shadow: 0 10px 40px var(--shadow-lg);
+            animation: fadeIn 0.5s ease-out;
+        }
+
+        .table-scroll {
+            overflow-x: auto;
+            margin-bottom: 30px;
+        }
+
+        .diary-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            font-size: 0.95rem;
+        }
+
+        .diary-table thead {
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        .crop-header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: white;
+            padding: 20px;
+            text-align: left;
+            font-family: 'Kreon', serif;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border-top-left-radius: 15px;
+            position: sticky;
+            left: 0;
+            z-index: 11;
+        }
+
+        .stage-header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: white;
+            padding: 20px;
+            text-align: center;
+            font-family: 'Kreon', serif;
+            font-size: 1rem;
+            font-weight: 600;
+            white-space: nowrap;
+            min-width: 220px;
+        }
+
+        .stage-header:last-child {
+            border-top-right-radius: 15px;
+        }
+
+        .diary-table tbody tr {
+            transition: all 0.3s ease;
+        }
+
+        .diary-table tbody tr:hover {
+            transform: scale(1.01);
+            box-shadow: 0 5px 20px var(--shadow-lg);
+        }
+
+        .crop-name {
+            background: var(--bg);
+            padding: 25px 20px;
+            font-family: 'Kreon', serif;
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: var(--primary);
+            border-left: 4px solid var(--accent);
+            position: sticky;
+            left: 0;
+            z-index: 9;
+            min-width: 200px;
+        }
+
+        .stage-cell {
+            padding: 20px;
+            text-align: center;
+            border-bottom: 1px solid #e8e4db;
+            vertical-align: middle;
+            min-width: 220px;
+        }
+
+        .stage-cell.has-value {
+            background: linear-gradient(135deg, rgba(26, 77, 46, 0.05) 0%, rgba(45, 122, 79, 0.05) 100%);
+            border-left: 1px solid rgba(26, 77, 46, 0.1);
+        }
+
+        .stage-cell.no-value {
+            background: #fafaf8;
+            border-left: 1px solid #e8e4db;
+        }
+
+        .stage-cell.empty-cell {
+            background: #f8f5f0;
+            border-left: 1px solid #e8e4db;
+        }
+
+        .stage-name {
+            font-size: 0.9rem;
+            color: var(--text);
+            margin-bottom: 8px;
+            font-weight: 500;
+            line-height: 1.3;
+        }
+
+        .dosage {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            box-shadow: 0 2px 8px rgba(26, 77, 46, 0.2);
+        }
+
+        .no-recommendation {
+            color: var(--text-muted);
+            font-size: 1.5rem;
+            opacity: 0.3;
+        }
+
+        .table-legend {
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+            flex-wrap: wrap;
+            padding: 20px;
+            background: var(--bg);
+            border-radius: 12px;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .legend-color {
+            width: 30px;
+            height: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px var(--shadow);
+        }
+
+        .no-product-message {
+            background: var(--card);
+            padding: 80px 40px;
+            border-radius: 25px;
+            text-align: center;
+            box-shadow: 0 10px 40px var(--shadow-lg);
+            animation: fadeIn 0.5s ease-out;
+        }
+
+        .message-icon {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            opacity: 0.5;
+        }
+
+        .no-product-message p {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+        }
+
+        @media (max-width: 1024px) {
+            .diary-table-container {
+                padding: 20px;
+            }
+
+            .stage-header,
+            .stage-cell {
+                min-width: 180px;
+            }
+
+            .crop-name {
+                min-width: 160px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .diary-title {
+                font-size: 2rem;
+            }
+
+            .product-selector {
+                padding: 20px;
+            }
+
+            .stage-header,
+            .stage-cell {
+                min-width: 150px;
+                padding: 15px;
+            }
+
+            .crop-name {
+                min-width: 140px;
+                padding: 15px;
+                font-size: 0.95rem;
+            }
+
+            .dosage {
+                padding: 6px 12px;
+                font-size: 0.85rem;
+            }
+        }
     </style>
 </head>
 <body>
@@ -338,10 +580,10 @@
                     <div class="button-title">Calculator</div>
                     <div class="button-desc">Calculate spray volumes</div>
                 </button>
-                <button class="nav-button">
+                <button class="nav-button" onclick="showPage('diaryPage')">
                     <span class="button-icon">📊</span>
-                    <div class="button-title">Placeholder 1</div>
-                    <div class="button-desc">Coming soon</div>
+                    <div class="button-title">Application Guide</div>
+                    <div class="button-desc">Product usage by crop & stage</div>
                 </button>
                 <button class="nav-button">
                     <span class="button-icon">📈</span>
@@ -427,9 +669,126 @@
                 </div>
             </div>
         </div>
+        <!-- Application Guide Page -->
+        <div id="diaryPage" class="page">
+            <button class="back-button" onclick="showPage('homePage')">← Back to Home</button>
+            
+            <div class="diary-container">
+                <div class="diary-header">
+                    <h2 class="diary-title">📋 Application Guide</h2>
+                    <p class="diary-subtitle">Select a product to view recommended application rates by crop type and growth stage</p>
+                </div>
+
+                <div class="product-selector">
+                    <label class="form-label" for="diaryProduct">Select Product</label>
+                    <select id="diaryProduct" class="form-select" onchange="updateDiaryTable()">
+                        <option value="">Choose a product...</option>
+                        <option value="Amino 16">Amino 16</option>
+                        <option value="Fruitfix">FruitFix</option>
+                        <option value="Granbrix">GranBrix</option>
+                        <option value="MicroRS">MicroRS</option>
+                        <option value="Amino Cell S">Amino Cell S</option>
+                        <option value="Amino Cell PK">Amino Cell PK</option>
+                        <option value="Amino Cell Si 3%">Amino Cell Si 3%</option>
+                        <option value="Amino Cell Antistress">Amino Cell Antistress</option>
+                        <option value="Ultra Green">Ultra Green</option>
+                        <option value="Amino HF">Amino HF</option>
+                        <option value="Amino 16 BZn">Amino 16 BZn</option>
+                        <option value="Amino Power">Amino Power</option>
+                    </select>
+                </div>
+
+                <div id="diaryTableContainer" class="diary-table-container" style="display: none;">
+                    <div class="table-scroll">
+                        <table id="diaryTable" class="diary-table">
+                            <!-- Table will be populated by JavaScript -->
+                        </table>
+                    </div>
+                    <div class="table-legend">
+                        <div class="legend-item">
+                            <div class="legend-color" style="background: var(--primary);"></div>
+                            <span>Recommended application</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-color" style="background: #e8e4db;"></div>
+                            <span>Not recommended</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="noProductMessage" class="no-product-message">
+                    <div class="message-icon">🌱</div>
+                    <p>Select a product above to view the application guide</p>
+                </div>
+            </div>
+        </div>
     </div>
 
     <script>
+        // Product usage data from CSV
+        const productData = {
+            "Legumes": {
+                stages: ["Early vegetative growth", "Pre Flowering", "On-going and every 15 days"],
+                data: {
+                    "Early vegetative growth": {"Amino 16": "4-5lt/1000lt", "Amino Cell S": "3-5lt/1000lt", "Amino Cell Antistress": "4-5lt/1000lt", "Ultra Green": "4-5lt/1000lt", "Amino HF": "4-5lt/1000lt", "Amino 16 BZn": "3-5lt/1000lt", "Amino Power": "4-5lt/1000lt"},
+                    "Pre Flowering": {"Amino 16": "4-5lt/1000lt", "Amino Cell Antistress": "4-5lt/1000lt", "Ultra Green": "4-5lt/1000lt", "Amino 16 BZn": "3-5lt/1000lt", "Amino Power": "4-5lt/1000lt"},
+                    "On-going and every 15 days": {"Amino 16": "4-5lt/1000lt", "Amino Cell S": "3-5lt/1000lt", "Amino Cell PK": "3-5lt/1000lt", "Amino Cell Antistress": "4-5lt/1000lt", "Ultra Green": "4-5lt/1000lt", "Amino Power": "4-5lt/1000lt"}
+                }
+            },
+            "Root/Tuber crops": {
+                stages: ["Early vegetative / Bulbing", "Root Thickening", "Bulb swelling / Root maturation"],
+                data: {
+                    "Early vegetative / Bulbing": {"Amino 16": "4-5lt/1000lt", "Amino Cell Antistress": "4-5lt/1000lt", "Ultra Green": "4-5lt/1000lt", "Amino HF": "4-5lt/1000lt", "Amino 16 BZn": "3-5lt/1000lt", "Amino Power": "4-5lt/1000lt"},
+                    "Root Thickening": {"Amino 16": "4-5lt/1000lt", "Amino Cell S": "3-5lt/1000lt", "Amino Cell PK": "3-5lt/1000lt", "Amino Cell Antistress": "4-5lt/1000lt", "Ultra Green": "4-5lt/1000lt", "Amino Power": "4-5lt/1000lt"},
+                    "Bulb swelling / Root maturation": {"Amino 16": "4-5lt/1000lt", "Fruitfix": "4-5lt/1000lt", "Granbrix": "4-5lt/1000lt", "Amino Cell Antistress": "4-5lt/1000lt", "Ultra Green": "4-5lt/1000lt", "Amino Power": "4-5lt/1000lt"}
+                }
+            },
+            "Solanaceous Fruiting vegetables": {
+                stages: ["Establishment / Early vegetative", "Vegetative to pre-Flower/Early bloom", "Fruit set", "Fruit development", "Fruit Fill to Harvest / Late cycle"],
+                data: {
+                    "Establishment / Early vegetative": {"Amino 16": "4-5lt/1000lt", "MicroRS": "3-5lt/1000lt", "Amino Cell S": "3-5lt/1000lt", "Amino Cell Antistress": "4-5lt/1000lt", "Ultra Green": "4-5lt/1000lt", "Amino HF": "4-5lt/1000lt", "Amino Power": "4-5lt/1000lt"},
+                    "Vegetative to pre-Flower/Early bloom": {"Amino 16": "4-5lt/1000lt", "Amino Cell PK": "3-5lt/1000lt", "Amino Cell Antistress": "4-5lt/1000lt", "Ultra Green": "4-5lt/1000lt", "Amino 16 BZn": "3-5lt/1000lt", "Amino Power": "4-5lt/1000lt"},
+                    "Fruit set": {"Amino 16": "4-5lt/1000lt", "Fruitfix": "4-5lt/1000lt", "Granbrix": "4-5lt/1000lt", "Amino Cell Si 3%": "3-5lt/1000lt", "Amino Cell Antistress": "4-5lt/1000lt", "Ultra Green": "4-5lt/1000lt", "Amino Power": "4-5lt/1000lt"},
+                    "Fruit development": {"Amino 16": "4-5lt/1000lt", "Fruitfix": "4-5lt/1000lt", "Granbrix": "4-5lt/1000lt", "Amino Cell S": "3-5lt/1000lt", "Amino Cell Antistress": "4-5lt/1000lt", "Ultra Green": "4-5lt/1000lt", "Amino Power": "4-5lt/1000lt"},
+                    "Fruit Fill to Harvest / Late cycle": {"Amino 16": "4-5lt/1000lt", "Amino Cell PK": "2-3lt/1000lt", "Amino Cell Si 3%": "3-5lt/1000lt", "Amino Cell Antistress": "4-5lt/1000lt", "Ultra Green": "4-5lt/1000lt", "Amino Power": "4-5lt/1000lt"}
+                }
+            },
+            "Vining/Soft-Fruiting vegetables": {
+                stages: ["Bud swelling", "Petal Fall", "Fruit Growth", "Mid to Late fruit development"],
+                data: {
+                    "Bud swelling": {"Amino 16": "4-5lt/1000lt", "Amino Cell Antistress": "4-5lt/1000lt", "Ultra Green": "4-5lt/1000lt", "Amino HF": "4-5lt/1000lt", "Amino 16 BZn": "3-5lt/1000lt", "Amino Power": "4-5lt/1000lt"},
+                    "Petal Fall": {"Amino 16": "4-5lt/1000lt", "Amino Cell Antistress": "4-5lt/1000lt", "Ultra Green": "4-5lt/1000lt", "Amino 16 BZn": "3-5lt/1000lt", "Amino Power": "4-5lt/1000lt"},
+                    "Fruit Growth": {"Amino 16": "4-5lt/1000lt", "Fruitfix": "4-5lt/1000lt", "Granbrix": "4-5lt/1000lt", "Amino Cell Si 3%": "3-5lt/1000lt", "Amino Cell Antistress": "4-5lt/1000lt", "Ultra Green": "4-5lt/1000lt", "Amino Power": "4-5lt/1000lt"},
+                    "Mid to Late fruit development": {"Amino 16": "4-5lt/1000lt", "Fruitfix": "4-5lt/1000lt", "Granbrix": "4-5lt/1000lt", "Amino Cell Si 3%": "3-5lt/1000lt", "Amino Cell Antistress": "4-5lt/1000lt", "Ultra Green": "4-5lt/1000lt", "Amino Power": "4-5lt/1000lt"}
+                }
+            },
+            "Grains/Cereals": {
+                stages: ["During herbicide period", "15-20 days after"],
+                data: {
+                    "During herbicide period": {"Amino 16": "4-5lt/1000lt", "Amino Cell S": "3-5lt/1000lt", "Amino Cell Si 3%": "3-5lt/1000lt", "Amino Cell Antistress": "4-5lt/1000lt", "Ultra Green": "4-5lt/1000lt", "Amino HF": "4-5lt/1000lt", "Amino Power": "4-5lt/1000lt"},
+                    "15-20 days after": {"Amino 16": "4-5lt/1000lt", "Amino Cell S": "3-5lt/1000lt", "Amino Cell Antistress": "4-5lt/1000lt", "Ultra Green": "4-5lt/1000lt", "Amino Power": "4-5lt/1000lt"}
+                }
+            },
+            "Citrus Fruits": {
+                stages: ["Pre-Flowering", "Fruit Set", "Mid-Fruit development", "Color change & post-harvest"],
+                data: {
+                    "Pre-Flowering": {"Amino 16": "4-5lt/1000lt", "MicroRS": "3-5lt/1000lt", "Amino Cell Antistress": "4-5lt/1000lt", "Ultra Green": "4-5lt/1000lt", "Amino HF": "4-5lt/1000lt", "Amino 16 BZn": "3-5lt/1000lt", "Amino Power": "4-5lt/1000lt"},
+                    "Fruit Set": {"Amino 16": "4-5lt/1000lt", "Amino Cell S": "3-5lt/1000lt", "Amino Cell Antistress": "4-5lt/1000lt", "Ultra Green": "4-5lt/1000lt", "Amino 16 BZn": "3-5lt/1000lt", "Amino Power": "4-5lt/1000lt"},
+                    "Mid-Fruit development": {"Amino 16": "4-5lt/1000lt", "Fruitfix": "4-5lt/1000lt", "Granbrix": "4-5lt/1000lt", "Amino Cell S": "3-5lt/1000lt", "Amino Cell Si 3%": "3-5lt/1000lt", "Amino Cell Antistress": "4-5lt/1000lt", "Ultra Green": "4-5lt/1000lt", "Amino 16 BZn": "3-5lt/1000lt", "Amino Power": "4-5lt/1000lt"},
+                    "Color change & post-harvest": {"Amino 16": "4-5lt/1000lt", "Fruitfix": "4-5lt/1000lt", "Granbrix": "4-5lt/1000lt", "Amino Cell Si 3%": "3-5lt/1000lt", "Amino Cell Antistress": "4-5lt/1000lt", "Ultra Green": "4-5lt/1000lt", "Amino Power": "4-5lt/1000lt"}
+                }
+            },
+            "Olives": {
+                stages: ["Late Winter", "Pre-Bloom", "Fruit development", "Post Harvest"],
+                data: {
+                    "Late Winter": {"Amino 16": "4-5lt/1000lt", "MicroRS": "3-5lt/1000lt", "Amino Cell Antistress": "4-5lt/1000lt", "Ultra Green": "4-5lt/1000lt", "Amino HF": "4-5lt/1000lt", "Amino Power": "4-5lt/1000lt"},
+                    "Pre-Bloom": {"Amino 16": "4-5lt/1000lt", "Amino Cell S": "3-5lt/1000lt", "Amino Cell Antistress": "4-5lt/1000lt", "Ultra Green": "4-5lt/1000lt", "Amino 16 BZn": "3-5lt/1000lt", "Amino Power": "4-5lt/1000lt"},
+                    "Fruit development": {"Amino 16": "4-5lt/1000lt", "Fruitfix": "4-5lt/1000lt", "Amino Cell S": "3-5lt/1000lt", "Amino Cell PK": "3-5lt/1000lt", "Amino Cell Si 3%": "3-5lt/1000lt", "Amino Cell Antistress": "4-5lt/1000lt", "Ultra Green": "4-5lt/1000lt", "Amino Power": "4-5lt/1000lt"},
+                    "Post Harvest": {"Amino 16": "4-5lt/1000lt", "Fruitfix": "4-5lt/1000lt", "Amino Cell Antistress": "4-5lt/1000lt", "Ultra Green": "4-5lt/1000lt", "Amino 16 BZn": "3-5lt/1000lt", "Amino Power": "4-5lt/1000lt"}
+                }
+            }
+        };
+
         // PWA service worker registration
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => {
@@ -437,6 +796,63 @@
                     .then(reg => console.log('Service Worker registered'))
                     .catch(err => console.log('Service Worker registration failed'));
             });
+        }
+
+        function updateDiaryTable() {
+            const selectedProduct = document.getElementById('diaryProduct').value;
+            const tableContainer = document.getElementById('diaryTableContainer');
+            const noProductMessage = document.getElementById('noProductMessage');
+            const table = document.getElementById('diaryTable');
+
+            if (!selectedProduct) {
+                tableContainer.style.display = 'none';
+                noProductMessage.style.display = 'block';
+                return;
+            }
+
+            noProductMessage.style.display = 'none';
+            tableContainer.style.display = 'block';
+
+            // Build table HTML
+            let tableHTML = '<thead><tr><th class="crop-header">Crop Type</th>';
+            
+            // Find max stages to create columns
+            let maxStages = 0;
+            Object.values(productData).forEach(crop => {
+                maxStages = Math.max(maxStages, crop.stages.length);
+            });
+
+            for (let i = 0; i < maxStages; i++) {
+                tableHTML += `<th class="stage-header">Stage ${i + 1}</th>`;
+            }
+            tableHTML += '</tr></thead><tbody>';
+
+            // Build rows
+            Object.entries(productData).forEach(([cropType, cropInfo]) => {
+                tableHTML += `<tr><td class="crop-name">${cropType}</td>`;
+                
+                cropInfo.stages.forEach((stage, index) => {
+                    const dosage = cropInfo.data[stage][selectedProduct] || '';
+                    const hasValue = dosage !== '';
+                    
+                    tableHTML += `
+                        <td class="stage-cell ${hasValue ? 'has-value' : 'no-value'}">
+                            <div class="stage-name">${stage}</div>
+                            ${hasValue ? `<div class="dosage">${dosage}</div>` : '<div class="no-recommendation">—</div>'}
+                        </td>
+                    `;
+                });
+
+                // Fill empty cells if needed
+                for (let i = cropInfo.stages.length; i < maxStages; i++) {
+                    tableHTML += '<td class="stage-cell empty-cell"></td>';
+                }
+                
+                tableHTML += '</tr>';
+            });
+
+            tableHTML += '</tbody>';
+            table.innerHTML = tableHTML;
         }
 
         function showPage(pageId) {
