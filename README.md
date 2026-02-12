@@ -1,7 +1,6 @@
 # AgriCalc Pro - Agricultural Spray Calculator PWA
 
 A Progressive Web App for calculating agricultural spray volumes based on crop type, area, and product selection.
-https://ed-evyp.github.io/ProductDosage/
 
 ## Features
 
