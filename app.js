@@ -213,13 +213,23 @@ function updateSpecifications() {
     noSpecsMessage.style.display = 'none';
     specsContent.style.display = 'block';
 
-    updateAminogramChart(selectedProduct);
-    const metrics = calculateMetrics(selectedProduct);
-    updateMetricsGrid(metrics);
+    try {
+        updateAminogramChart(selectedProduct);
+        const metrics = calculateMetrics(selectedProduct);
+        updateMetricsGrid(metrics);
+    } catch (error) {
+        console.error('Error updating specifications:', error);
+        alert('Error loading specifications: ' + error.message);
+    }
 }
 
 function updateAminogramChart(productName) {
     const product = aminoAcidData[productName];
+    if (!product) {
+        console.error('Product not found:', productName);
+        return;
+    }
+    
     const total = product.total;
 
     // Sort amino acids by total percentage
@@ -233,7 +243,13 @@ function updateAminogramChart(productName) {
     }
 
     // Create new chart
-    const ctx = document.getElementById('aminogramChart').getContext('2d');
+    const canvas = document.getElementById('aminogramChart');
+    if (!canvas) {
+        console.error('Canvas element not found');
+        return;
+    }
+    
+    const ctx = canvas.getContext('2d');
     
     aminogramChart = new Chart(ctx, {
         type: 'bar',
@@ -301,7 +317,7 @@ function updateAminogramChart(productName) {
                     title: {
                         display: true,
                         text: 'Concentration (g/L)',
-                        color: var(--primary),
+                        color: '#1a4d2e',
                         font: {
                             size: 13,
                             weight: '600',
