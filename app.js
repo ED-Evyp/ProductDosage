@@ -111,17 +111,7 @@ function calculateMetrics(productName) {
         description: "Free/Total amino acids ratio"
     };
 
-    // 5. Combined Osmoprotectants
-    const prolineGL = total["Proline"] || 0;
-    metrics.osmoprotectants = {
-        name: "Combined Osmoprotectants",
-        value: prolineGL.toFixed(2) + " g/L",
-        target: ">8 g/L",
-        status: prolineGL > 8 ? "excellent" : "moderate",
-        description: "Proline g/L (primary osmoprotectant)"
-    };
-
-    // 6. Stress-focused
+    // 5. Stress-focused
     const stressAA = ((total["Proline"] || 0) + (total["Arginine"] || 0) + (total["Glycine"] || 0) + (total["Serine"] || 0)) / totalTotal * 100;
     metrics.stressFocused = {
         name: "Stress-Focused",
@@ -131,7 +121,7 @@ function calculateMetrics(productName) {
         description: "Pro + Arg + Gly + Ser"
     };
 
-    // 7. Vegetative / Recovery
+    // 6. Vegetative / Recovery
     const vegetativeAA = ((total["Glutamic Acid"] || 0) + (total["Aspartic Acid"] || 0) + (total["Alanine"] || 0)) / totalTotal * 100;
     metrics.vegetative = {
         name: "Vegetative / Recovery",
@@ -232,45 +222,52 @@ function updateAminogramChart(productName) {
     const product = aminoAcidData[productName];
     const total = product.total;
 
-    const sortedAA = Object.entries(total).sort((a, b) => b[1] - a[1]).slice(0, 12);
+    // Sort amino acids by total percentage
+    const sortedAA = Object.entries(total).sort((a, b) => b[1] - a[1]);
     const labels = sortedAA.map(([name]) => name);
     const data = sortedAA.map(([, value]) => value);
 
+    // Destroy previous chart
     if (aminogramChart) {
         aminogramChart.destroy();
     }
 
+    // Create new chart
     const ctx = document.getElementById('aminogramChart').getContext('2d');
     
     aminogramChart = new Chart(ctx, {
-        type: 'polarArea',
+        type: 'bar',
         data: {
             labels: labels,
             datasets: [{
+                label: 'Amino Acid Content (g/L)',
                 data: data,
-                backgroundColor: [
-                    'rgba(26, 77, 46, 0.9)', 'rgba(45, 122, 79, 0.9)', 'rgba(255, 159, 28, 0.9)',
-                    'rgba(26, 77, 46, 0.7)', 'rgba(45, 122, 79, 0.7)', 'rgba(255, 159, 28, 0.7)',
-                    'rgba(26, 77, 46, 0.5)', 'rgba(45, 122, 79, 0.5)', 'rgba(255, 159, 28, 0.5)',
-                    'rgba(26, 77, 46, 0.3)', 'rgba(45, 122, 79, 0.3)', 'rgba(255, 159, 28, 0.3)'
-                ],
+                backgroundColor: data.map((_, index) => {
+                    const colors = [
+                        '#1a4d2e', '#2d7a4f', '#ff9f1c', 
+                        '#3d9664', '#4fae73', '#ffb84d',
+                        '#1a4d2e99', '#2d7a4f99', '#ff9f1c99',
+                        '#3d966499', '#4fae7399', '#ffb84d99',
+                        '#1a4d2e66', '#2d7a4f66', '#ff9f1c66',
+                        '#3d966466', '#4fae7366', '#ffb84d66'
+                    ];
+                    return colors[index % colors.length];
+                }),
                 borderColor: 'rgba(255, 255, 255, 0.8)',
-                borderWidth: 3
+                borderWidth: 2,
+                borderRadius: 8
             }]
         },
         options: {
+            indexAxis: 'y',
             responsive: true,
-            maintainAspectRatio: true,
+            maintainAspectRatio: false,
             plugins: {
                 legend: {
-                    position: 'right',
-                    labels: {
-                        font: { size: 14, family: "'DM Sans', sans-serif", weight: '500' },
-                        padding: 18,
-                        color: '#2c3e2f',
-                        usePointStyle: true,
-                        pointStyle: 'circle'
-                    }
+                    display: false
+                },
+                title: {
+                    display: false
                 },
                 tooltip: {
                     backgroundColor: 'rgba(26, 77, 46, 0.95)',
@@ -279,24 +276,50 @@ function updateAminogramChart(productName) {
                     bodyFont: { size: 13 },
                     callbacks: {
                         label: function(context) {
-                            return context.label + ': ' + context.parsed.toFixed(2) + ' g/L';
+                            return context.parsed.x.toFixed(2) + ' g/L';
                         }
                     }
                 }
             },
             scales: {
-                r: {
-                    ticks: {
-                        backdropColor: 'transparent',
-                        color: '#6b7c6e',
-                        font: { size: 12 }
-                    },
+                x: {
+                    beginAtZero: true,
                     grid: {
-                        color: 'rgba(26, 77, 46, 0.15)',
-                        lineWidth: 2
+                        color: 'rgba(26, 77, 46, 0.1)',
+                        lineWidth: 1
                     },
-                    angleLines: {
-                        color: 'rgba(26, 77, 46, 0.1)'
+                    ticks: {
+                        color: '#6b7c6e',
+                        font: {
+                            size: 12,
+                            family: "'DM Sans', sans-serif"
+                        },
+                        callback: function(value) {
+                            return value + ' g/L';
+                        }
+                    },
+                    title: {
+                        display: true,
+                        text: 'Concentration (g/L)',
+                        color: var(--primary),
+                        font: {
+                            size: 13,
+                            weight: '600',
+                            family: "'Kreon', serif"
+                        }
+                    }
+                },
+                y: {
+                    grid: {
+                        display: false
+                    },
+                    ticks: {
+                        color: '#2c3e2f',
+                        font: {
+                            size: 13,
+                            weight: '500',
+                            family: "'DM Sans', sans-serif"
+                        }
                     }
                 }
             }
