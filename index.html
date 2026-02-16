@@ -36,10 +36,10 @@
                     <div class="button-title">Product Specifications</div>
                     <div class="button-desc">Amino acid profiles & metrics</div>
                 </button>
-                <button class="nav-button">
-                    <span class="button-icon">📋</span>
-                    <div class="button-title">Placeholder 3</div>
-                    <div class="button-desc">Coming soon</div>
+                <button class="nav-button" onclick="showPage('agronomyPage')">
+                    <span class="button-icon">🌱</span>
+                    <div class="button-title">Agronomy Helper</div>
+                    <div class="button-desc">Compatibility & safety checks</div>
                 </button>
             </div>
         </div>
@@ -202,11 +202,147 @@
                 </div>
             </div>
         </div>
+
+        <!-- Agronomy Helper Page -->
+        <div id="agronomyPage" class="page">
+            <button class="back-button" onclick="showPage('homePage')">← Back to Home</button>
+            
+            <div class="agronomy-container">
+                <div class="agronomy-header">
+                    <h2 class="agronomy-title">🌱 Agronomy Helper</h2>
+                    <p class="agronomy-subtitle">Tank mixing compatibility & foliar application safety checks</p>
+                </div>
+
+                <!-- Precipitation Checker -->
+                <div class="helper-section">
+                    <h3 class="helper-section-title">🧪 Tank Mix Precipitation Checker</h3>
+                    <p class="helper-description">Check compatibility between two materials to avoid precipitation issues</p>
+                    
+                    <div class="checker-grid">
+                        <div class="form-group">
+                            <label class="form-label" for="material1">First Material</label>
+                            <select id="material1" class="form-select" onchange="checkPrecipitation()">
+                                <option value="">Select material...</option>
+                                <option value="Amino acids">Amino acids</option>
+                                <option value="N">Nitrogen (N)</option>
+                                <option value="P">Phosphorus (P)</option>
+                                <option value="K">Potassium (K)</option>
+                                <option value="Ca">Calcium (Ca)</option>
+                                <option value="Mg">Magnesium (Mg)</option>
+                                <option value="S">Sulfur (S)</option>
+                                <option value="Fe">Iron (Fe)</option>
+                                <option value="Mn">Manganese (Mn)</option>
+                                <option value="Zn">Zinc (Zn)</option>
+                                <option value="Cu">Copper (Cu)</option>
+                                <option value="B">Boron (B)</option>
+                                <option value="Mo">Molybdenum (Mo)</option>
+                            </select>
+                        </div>
+
+                        <div class="mixer-icon">+</div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="material2">Second Material</label>
+                            <select id="material2" class="form-select" onchange="checkPrecipitation()">
+                                <option value="">Select material...</option>
+                                <option value="Amino acids">Amino acids</option>
+                                <option value="N">Nitrogen (N)</option>
+                                <option value="P">Phosphorus (P)</option>
+                                <option value="K">Potassium (K)</option>
+                                <option value="Ca">Calcium (Ca)</option>
+                                <option value="Mg">Magnesium (Mg)</option>
+                                <option value="S">Sulfur (S)</option>
+                                <option value="Fe">Iron (Fe)</option>
+                                <option value="Mn">Manganese (Mn)</option>
+                                <option value="Zn">Zinc (Zn)</option>
+                                <option value="Cu">Copper (Cu)</option>
+                                <option value="B">Boron (B)</option>
+                                <option value="Mo">Molybdenum (Mo)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div id="precipitationResult" class="result-card" style="display: none;"></div>
+
+                    <div class="legend-box">
+                        <h4>Legend:</h4>
+                        <div class="legend-items">
+                            <div class="legend-item-inline"><span class="status-icon safe">✓</span> Compatible - Safe to mix</div>
+                            <div class="legend-item-inline"><span class="status-icon caution">⚠️</span> Caution - Risk under certain conditions</div>
+                            <div class="legend-item-inline"><span class="status-icon danger">❌</span> Incompatible - Avoid mixing</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Foliar Safety Checker -->
+                <div class="helper-section">
+                    <h3 class="helper-section-title">🌿 Foliar Application Safety Checker</h3>
+                    <p class="helper-description">Check crop sensitivity to foliar applications of nutrients</p>
+                    
+                    <div class="checker-grid">
+                        <div class="form-group">
+                            <label class="form-label" for="nutrient">Nutrient/Material</label>
+                            <select id="nutrient" class="form-select" onchange="checkFoliarSafety()">
+                                <option value="">Select nutrient...</option>
+                                <option value="Aminoacids">Amino acids</option>
+                                <option value="N (org)">Nitrogen (Organic)</option>
+                                <option value="P">Phosphorus (P)</option>
+                                <option value="K">Potassium (K)</option>
+                                <option value="Ca">Calcium (Ca)</option>
+                                <option value="Mg">Magnesium (Mg)</option>
+                                <option value="S">Sulfur (S)</option>
+                                <option value="Fe">Iron (Fe)</option>
+                                <option value="Mn">Manganese (Mn)</option>
+                                <option value="Zn">Zinc (Zn)</option>
+                                <option value="Cu">Copper (Cu)</option>
+                                <option value="B">Boron (B)</option>
+                                <option value="Mo">Molybdenum (Mo)</option>
+                            </select>
+                        </div>
+
+                        <div class="mixer-icon">→</div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="cropType">Crop Type</label>
+                            <select id="cropType" class="form-select" onchange="checkFoliarSafety()">
+                                <option value="">Select crop...</option>
+                                <option value="Leafy Vegetables">Leafy Vegetables</option>
+                                <option value="Fruiting Vegetables">Fruiting Vegetables</option>
+                                <option value="Cucurbits">Cucurbits</option>
+                                <option value="Stone Fruits">Stone Fruits</option>
+                                <option value="Citrus">Citrus</option>
+                                <option value="Pome Fruits">Pome Fruits</option>
+                                <option value="Grapes">Grapes</option>
+                                <option value="Berries">Berries</option>
+                                <option value="Legumes">Legumes</option>
+                                <option value="Brassicas">Brassicas</option>
+                                <option value="Root Crops">Root Crops</option>
+                                <option value="Cereals/Grains">Cereals/Grains</option>
+                                <option value="Ornamentals (soft)">Ornamentals (soft)</option>
+                                <option value="Young Seedlings">Young Seedlings</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div id="foliarResult" class="result-card" style="display: none;"></div>
+
+                    <div class="legend-box">
+                        <h4>Legend:</h4>
+                        <div class="legend-items">
+                            <div class="legend-item-inline"><span class="status-icon safe">✓</span> Generally Safe - Low risk at recommended rates</div>
+                            <div class="legend-item-inline"><span class="status-icon caution">⚠️</span> Caution Required - Use reduced rates, test first</div>
+                            <div class="legend-item-inline"><span class="status-icon danger">❌</span> High Risk - Very sensitive, extreme caution</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
     <script src="data.js"></script>
     <script src="app.js"></script>
+    <script src="agronomy.js"></script>
     <script src="calculator.js"></script>
 </body>
 </html>

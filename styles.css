@@ -464,6 +464,296 @@ body::before {
     margin-bottom: 40px;
 }
 
+/* Agronomy Helper Styles */
+.agronomy-container {
+    animation: slideUp 0.6s ease-out;
+}
+
+.agronomy-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.agronomy-title {
+    font-family: 'Kreon', serif;
+    font-size: 2.5rem;
+    color: var(--primary);
+    margin-bottom: 10px;
+}
+
+.agronomy-subtitle {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+}
+
+.helper-section {
+    background: var(--card);
+    padding: 40px;
+    border-radius: 25px;
+    box-shadow: 0 10px 40px var(--shadow-lg);
+    margin-bottom: 40px;
+}
+
+.helper-section-title {
+    font-family: 'Kreon', serif;
+    font-size: 1.8rem;
+    color: var(--primary);
+    margin-bottom: 15px;
+}
+
+.helper-description {
+    font-size: 1rem;
+    color: var(--text-muted);
+    margin-bottom: 30px;
+}
+
+.checker-grid {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 30px;
+    align-items: end;
+    margin-bottom: 30px;
+}
+
+.mixer-icon {
+    font-size: 2.5rem;
+    color: var(--accent);
+    font-weight: bold;
+    padding-bottom: 20px;
+}
+
+.result-card {
+    background: linear-gradient(135deg, #f8f5f0 0%, #ffffff 100%);
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 4px 20px var(--shadow);
+    margin-bottom: 30px;
+    border-left: 5px solid var(--primary);
+}
+
+.result-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid #e8e4db;
+}
+
+.result-header.safe {
+    border-left-color: #1a4d2e;
+}
+
+.result-header.caution {
+    border-left-color: #ff9f1c;
+}
+
+.result-header.danger {
+    border-left-color: #d64545;
+}
+
+.result-icon {
+    font-size: 2.5rem;
+}
+
+.result-header h3 {
+    font-family: 'Kreon', serif;
+    font-size: 1.5rem;
+    color: var(--text);
+    flex: 1;
+}
+
+.result-status {
+    font-size: 1.1rem;
+    font-weight: 600;
+    padding: 8px 20px;
+    border-radius: 20px;
+}
+
+.result-header.safe .result-status {
+    background: linear-gradient(135deg, #1a4d2e 0%, #2d7a4f 100%);
+    color: white;
+}
+
+.result-header.caution .result-status {
+    background: linear-gradient(135deg, #ff9f1c 0%, #ffb84d 100%);
+    color: white;
+}
+
+.result-header.danger .result-status {
+    background: linear-gradient(135deg, #d64545 0%, #e66767 100%);
+    color: white;
+}
+
+.warning-details {
+    background: rgba(255, 159, 28, 0.05);
+    padding: 20px;
+    border-radius: 15px;
+    margin-bottom: 20px;
+    border-left: 4px solid var(--accent);
+}
+
+.warning-details.safe {
+    background: rgba(26, 77, 46, 0.05);
+    border-left-color: #1a4d2e;
+}
+
+.warning-details.caution {
+    background: rgba(255, 159, 28, 0.08);
+    border-left-color: #ff9f1c;
+}
+
+.warning-details.danger {
+    background: rgba(214, 69, 69, 0.08);
+    border-left-color: #d64545;
+}
+
+.warning-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.warning-icon {
+    font-size: 1.5rem;
+}
+
+.warning-details p {
+    color: var(--text);
+    line-height: 1.6;
+    margin: 0;
+}
+
+.recommendations {
+    background: var(--bg);
+    padding: 25px;
+    border-radius: 15px;
+}
+
+.recommendations h4 {
+    font-family: 'Kreon', serif;
+    font-size: 1.2rem;
+    color: var(--primary);
+    margin-bottom: 15px;
+}
+
+.recommendations ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.recommendations li {
+    padding: 10px 0;
+    border-bottom: 1px solid #e8e4db;
+    line-height: 1.6;
+}
+
+.recommendations li:last-child {
+    border-bottom: none;
+}
+
+.legend-box {
+    background: var(--bg);
+    padding: 25px;
+    border-radius: 15px;
+    margin-top: 20px;
+}
+
+.legend-box h4 {
+    font-family: 'Kreon', serif;
+    font-size: 1.1rem;
+    color: var(--primary);
+    margin-bottom: 15px;
+}
+
+.legend-items {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.legend-item-inline {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.95rem;
+}
+
+.status-icon {
+    font-size: 1.3rem;
+    min-width: 30px;
+}
+
+.status-icon.safe {
+    color: #1a4d2e;
+}
+
+.status-icon.caution {
+    color: #ff9f1c;
+}
+
+.status-icon.danger {
+    color: #d64545;
+}
+
+@media (max-width: 1024px) {
+    .checker-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .mixer-icon {
+        display: none;
+    }
+}
+
+@media (max-width: 768px) {
+    .agronomy-title {
+        font-size: 2rem;
+    }
+    
+    .helper-section {
+        padding: 25px 20px;
+    }
+    
+    .helper-section-title {
+        font-size: 1.5rem;
+    }
+    
+    .result-header {
+        flex-wrap: wrap;
+    }
+    
+    .result-header h3 {
+        font-size: 1.2rem;
+        width: 100%;
+    }
+    
+    .result-status {
+        font-size: 0.95rem;
+        padding: 6px 15px;
+    }
+    
+    .legend-items {
+        gap: 8px;
+    }
+    
+    .legend-item-inline {
+        font-size: 0.85rem;
+    }
+}
+
+/* Product Specifications Styles */
+.chart-section {
+    background: var(--card);
+    padding: 40px;
+    border-radius: 25px;
+    box-shadow: 0 10px 40px var(--shadow-lg);
+    margin-bottom: 40px;
+}
+
 .section-title {
     font-family: 'Kreon', serif;
     font-size: 1.8rem;
