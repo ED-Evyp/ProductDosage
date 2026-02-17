@@ -14,8 +14,8 @@
 <body>
     <div class="container">
         <div class="header">
-            <div class="logo">🌾 EVYP</div>
-            <div class="tagline">Product specifications - Agronomy helper</div>
+            <div class="logo">🌾 AgriCalc Pro</div>
+            <div class="tagline">Agricultural Spray Calculator</div>
         </div>
 
         <!-- Home Page -->
@@ -40,6 +40,11 @@
                     <span class="button-icon">🌱</span>
                     <div class="button-title">Agronomy Helper</div>
                     <div class="button-desc">Compatibility & safety checks</div>
+                </button>
+                <button class="nav-button" onclick="showPage('cropRecoPage')">
+                    <span class="button-icon">🌾</span>
+                    <div class="button-title">Crop Recommendations</div>
+                    <div class="button-desc">Nutrient needs & product guide</div>
                 </button>
             </div>
         </div>
@@ -339,10 +344,96 @@
         </div>
     </div>
 
+    <!-- Crop Recommendations Page -->
+    <div id="cropRecoPage" class="page" style="display:none;">
+            <button class="back-button" onclick="showPage('homePage')">← Back to Home</button>
+            <div class="cropreco-container">
+
+                <div class="cropreco-header">
+                    <h2 class="cropreco-title">🌾 Crop Recommendations</h2>
+                    <p class="cropreco-subtitle">Select a crop to view its nutrient demand profile and tailored product recommendations</p>
+                </div>
+
+                <div class="crop-selector-card">
+                    <label class="form-label" for="cropSelect">Choose Crop</label>
+                    <select id="cropSelect" class="form-select" onchange="updateCropReco()">
+                        <option value="">Select a crop...</option>
+                        <optgroup label="Cereals &amp; Grains">
+                            <option>Wheat</option><option>Rice</option><option>Maize</option>
+                            <option>Barley</option><option>Oats</option><option>Sorghum</option><option>Millet</option>
+                        </optgroup>
+                        <optgroup label="Root &amp; Tuber Crops">
+                            <option>Potato</option><option value="Sweet potato">Sweet Potato</option>
+                            <option>Carrot</option><option>Onion</option><option>Garlic</option>
+                        </optgroup>
+                        <optgroup label="Leafy &amp; Brassica Vegetables">
+                            <option>Lettuce</option><option>Spinach</option><option>Cabbage</option>
+                            <option>Cauliflower</option><option>Broccoli</option>
+                        </optgroup>
+                        <optgroup label="Fruiting Vegetables">
+                            <option>Tomato</option><option>Eggplant</option><option>Peppers</option>
+                            <option>Cucumber</option><option>Pumpkin</option><option>Watermelon</option>
+                        </optgroup>
+                        <optgroup label="Tree Fruits">
+                            <option>Apple</option><option>Pear</option><option>Orange</option>
+                            <option>Mango</option><option>Banana</option><option>Avocado</option>
+                            <option>Peach</option><option>Cherry</option><option>Plum</option>
+                            <option>Apricot</option><option>Plumcot</option><option>Kiwi</option>
+                            <option>Papaya</option><option>Pineapple</option><option>Olives</option>
+                        </optgroup>
+                        <optgroup label="Vines"><option>Grapes</option></optgroup>
+                        <optgroup label="Legumes">
+                            <option>Soybean</option><option>Peanut</option><option>Lentil</option>
+                            <option>Chickpea</option><option value="Kidney bean">Kidney Bean</option>
+                        </optgroup>
+                        <optgroup label="Industrial &amp; Oil Crops">
+                            <option>Sunflower</option><option>Rapeseed</option><option>Cotton</option>
+                        </optgroup>
+                        <optgroup label="Tropical &amp; Specialty">
+                            <option>Cacao</option><option>Coffee</option><option>Tea</option>
+                        </optgroup>
+                    </select>
+                </div>
+
+                <div id="cropRecoContent" style="display:none;">
+                    <div class="reco-chart-card">
+                        <div class="reco-chart-header">
+                            <h3 id="chartCropName" class="reco-chart-title"></h3>
+                            <p class="reco-chart-sub">Nutrient demand profile — 1 = Minimal &nbsp;|&nbsp; 6 = Critical</p>
+                        </div>
+                        <div class="radar-wrapper">
+                            <canvas id="cropRadarChart"></canvas>
+                        </div>
+                        <div class="demand-scale-legend">
+                            <div class="scale-item scale-1"><span>1</span>Minimal</div>
+                            <div class="scale-item scale-2"><span>2</span>Low</div>
+                            <div class="scale-item scale-3"><span>3</span>Moderate</div>
+                            <div class="scale-item scale-4"><span>4</span>High</div>
+                            <div class="scale-item scale-5"><span>5</span>Very High</div>
+                            <div class="scale-item scale-6"><span>6</span>Critical</div>
+                        </div>
+                    </div>
+
+                    <div class="nutrient-bars-card">
+                        <h3 class="section-title" style="text-align:left;font-size:1.4rem;margin-bottom:24px;">Nutrient Demand Breakdown</h3>
+                        <div class="nutrient-bars-grid" id="nutrientBarsGrid"></div>
+                    </div>
+
+                    <div id="productRecoCards"></div>
+                </div>
+
+                <div id="noCropMessage" class="no-product-message">
+                    <div class="message-icon">🌱</div>
+                    <p>Select a crop to view its nutrient profile and product recommendations</p>
+                </div>
+            </div>
+        </div>
+
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
     <script src="data.js"></script>
     <script src="app.js"></script>
     <script src="agronomy.js"></script>
+    <script src="cropreco.js"></script>
     <script src="calculator.js"></script>
 </body>
 </html>

@@ -974,3 +974,291 @@ body::before {
         height: 450px;
     }
 }
+
+/* ─── Crop Recommendations Page ─────────────────────────────────────────────── */
+
+.cropreco-container {
+    animation: slideUp 0.6s ease-out;
+}
+
+.cropreco-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.cropreco-title {
+    font-family: 'Kreon', serif;
+    font-size: 2.5rem;
+    color: var(--primary);
+    margin-bottom: 10px;
+}
+
+.cropreco-subtitle {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+}
+
+.crop-selector-card {
+    background: var(--card);
+    padding: 30px 35px;
+    border-radius: 20px;
+    box-shadow: 0 4px 20px var(--shadow);
+    margin-bottom: 35px;
+}
+
+/* ── Radar Chart Card ── */
+.reco-chart-card {
+    background: var(--card);
+    padding: 40px;
+    border-radius: 25px;
+    box-shadow: 0 10px 40px var(--shadow-lg);
+    margin-bottom: 35px;
+}
+
+.reco-chart-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.reco-chart-title {
+    font-family: 'Kreon', serif;
+    font-size: 2rem;
+    color: var(--primary);
+    margin-bottom: 6px;
+}
+
+.reco-chart-sub {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+}
+
+.radar-wrapper {
+    max-width: 560px;
+    margin: 0 auto 30px;
+    position: relative;
+}
+
+/* ── Demand Scale Legend ── */
+.demand-scale-legend {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 10px;
+    padding: 20px;
+    background: var(--bg);
+    border-radius: 14px;
+}
+
+.scale-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 7px 16px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+
+.scale-item span {
+    font-family: 'Kreon', serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    min-width: 18px;
+    text-align: center;
+}
+
+.scale-1 { background:#e8f4ec; color:#3a6b50; }
+.scale-2 { background:#dcf0e4; color:#2d5a40; }
+.scale-3 { background:#c4e0cc; color:#1a4d2e; }
+.scale-4 { background:#fef0d9; color:#b36800; }
+.scale-5 { background:#ffe5c0; color:#8a3e00; }
+.scale-6 { background:#fde4e4; color:#7a1f1f; }
+
+/* ── Nutrient Bars Card ── */
+.nutrient-bars-card {
+    background: var(--card);
+    padding: 40px;
+    border-radius: 25px;
+    box-shadow: 0 10px 40px var(--shadow-lg);
+    margin-bottom: 35px;
+}
+
+.nutrient-bars-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.nutrient-bar-item {
+    display: grid;
+    grid-template-columns: 160px 1fr 140px;
+    align-items: center;
+    gap: 16px;
+}
+
+.nb-label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.nb-symbol {
+    font-family: 'Kreon', serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--primary);
+    min-width: 28px;
+}
+
+.nb-name {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+
+.nb-track {
+    height: 12px;
+    background: #e8e4db;
+    border-radius: 99px;
+    overflow: hidden;
+}
+
+.nb-fill {
+    height: 100%;
+    border-radius: 99px;
+    transition: width 0.7s cubic-bezier(0.4,0,0.2,1);
+}
+
+.nb-score {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 5px 14px;
+    border-radius: 20px;
+    font-family: 'Kreon', serif;
+    font-size: 1rem;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.nb-score-label {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 500;
+}
+
+/* ── Product Recommendation Cards ── */
+.reco-products-header {
+    margin-bottom: 0;
+    background: var(--card);
+    padding: 40px 40px 0;
+    border-radius: 25px 25px 0 0;
+    box-shadow: 0 -4px 20px var(--shadow);
+}
+
+.reco-product-grid {
+    background: var(--card);
+    padding: 0 40px 40px;
+    border-radius: 0 0 25px 25px;
+    box-shadow: 0 10px 40px var(--shadow-lg);
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 22px;
+    margin-bottom: 40px;
+}
+
+.reco-product-card {
+    padding: 28px;
+    border-radius: 18px;
+    position: relative;
+    transition: transform 0.3s cubic-bezier(0.4,0,0.2,1), box-shadow 0.3s;
+    overflow: hidden;
+}
+
+.reco-product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px var(--shadow-lg);
+}
+
+.reco-primary {
+    background: linear-gradient(135deg, #1a4d2e 0%, #2d7a4f 100%);
+    color: white;
+}
+
+.reco-secondary {
+    background: linear-gradient(135deg, #f8f5f0 0%, #ede9e0 100%);
+    border: 2px solid rgba(26,77,46,0.15);
+}
+
+.reco-tertiary {
+    background: linear-gradient(135deg, #fffbf5 0%, #fff3e0 100%);
+    border: 2px solid rgba(255,159,28,0.25);
+}
+
+.rpc-badge {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    padding: 4px 12px;
+    border-radius: 20px;
+    text-transform: uppercase;
+}
+
+.reco-primary .rpc-badge {
+    background: rgba(255,255,255,0.2);
+    color: rgba(255,255,255,0.95);
+}
+
+.reco-secondary .rpc-badge {
+    background: rgba(26,77,46,0.1);
+    color: #1a4d2e;
+}
+
+.reco-tertiary .rpc-badge {
+    background: rgba(255,159,28,0.15);
+    color: #b36800;
+}
+
+.rpc-icon {
+    font-size: 2.5rem;
+    margin-bottom: 12px;
+}
+
+.rpc-name {
+    font-family: 'Kreon', serif;
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+
+.reco-primary .rpc-name { color: white; }
+.reco-secondary .rpc-name { color: var(--primary); }
+.reco-tertiary .rpc-name { color: #b36800; }
+
+.rpc-reason {
+    font-size: 0.92rem;
+    line-height: 1.55;
+}
+
+.reco-primary .rpc-reason { color: rgba(255,255,255,0.88); }
+.reco-secondary .rpc-reason { color: var(--text-muted); }
+.reco-tertiary .rpc-reason { color: #7a5500; }
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+    .cropreco-title { font-size: 2rem; }
+    .reco-chart-card, .nutrient-bars-card { padding: 25px 20px; }
+    .reco-products-header { padding: 25px 20px 0; }
+    .reco-product-grid { padding: 0 20px 25px; grid-template-columns: 1fr; gap: 16px; }
+    .radar-wrapper { max-width: 100%; }
+    .nutrient-bar-item { grid-template-columns: 120px 1fr 110px; gap: 10px; }
+    .nb-symbol { font-size: 0.95rem; }
+    .nb-name { font-size: 0.8rem; }
+    .nb-score { font-size: 0.88rem; padding: 4px 10px; }
+    .nb-score-label { display: none; }
+    .demand-scale-legend { gap: 6px; }
+    .scale-item { padding: 5px 10px; font-size: 0.78rem; }
+}
